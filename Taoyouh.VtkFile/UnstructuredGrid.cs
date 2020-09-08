@@ -7,7 +7,7 @@ namespace Taoyouh.VtkFile
 {
     public class UnstructuredGrid
     {
-        [XmlArray(ElementName = "Piece")]
+        [XmlElement("Piece")]
         public List<Piece> Pieces { get; set; }
     }
 }

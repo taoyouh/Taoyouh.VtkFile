@@ -27,14 +27,14 @@ namespace Taoyouh.VtkFile
         public string Content { get; set; }
 
         [XmlAttribute("NumberOfComponents")]
-        private string NumberOfComponentsString
+        public string NumberOfComponentsString
         {
             get => NumberOfComponents?.ToString(CultureInfo.InvariantCulture);
             set => NumberOfComponents = value == null ? null : (uint?)uint.Parse(value);
         }
 
         [XmlAttribute("offset")]
-        private string OffsetString
+        public string OffsetString
         {
             get => Offset?.ToString(CultureInfo.InvariantCulture);
             set => Offset = value == null ? null : (uint?)uint.Parse(value);
@@ -48,6 +48,9 @@ namespace Taoyouh.VtkFile
 
         public void FillData(IEnumerable<double> data)
             => FillData(data, DataArrayType.Float64);
+
+        public void FillData(IEnumerable<float> data)
+            => FillData(data, DataArrayType.Float32);
 
         public void FillData(IEnumerable<byte> data)
             => FillData(data, DataArrayType.UInt8);

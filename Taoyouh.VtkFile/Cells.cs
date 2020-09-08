@@ -5,7 +5,7 @@ namespace Taoyouh.VtkFile
 {
     public class Cells
     {
-        [XmlArray("DataArray")]
+        [XmlElement("DataArray")]
         public List<DataArray> DataArrays { get; } = new List<DataArray>();
 
         public void FillCells(CellsBuilder builder)

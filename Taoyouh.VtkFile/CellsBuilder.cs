@@ -19,7 +19,7 @@ namespace Taoyouh.VtkFile
         public void AddCell(IEnumerable<int> points, CellType type)
         {
             Connectivity.AddRange(points);
-            Offsets.Add(Connectivity.Count - 1);
+            Offsets.Add(Connectivity.Count);
             Types.Add((byte)type);
         }
     }

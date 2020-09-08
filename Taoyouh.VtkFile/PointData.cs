@@ -36,7 +36,7 @@ namespace Taoyouh.VtkFile
         [XmlAttribute]
         public string TCoords { get; set; }
 
-        [XmlArray("DataArray")]
+        [XmlElement("DataArray")]
         public List<DataArray> DataArrays { get; set; }
     }
 }
