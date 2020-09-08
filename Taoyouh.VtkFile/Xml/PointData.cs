@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Taoyouh.VtkFile
+namespace Taoyouh.VtkFile.Xml
 {
     public class PointData
     {
@@ -37,6 +37,6 @@ namespace Taoyouh.VtkFile
         public string TCoords { get; set; }
 
         [XmlElement("DataArray")]
-        public List<DataArray> DataArrays { get; set; }
+        public List<DataArray> DataArrays { get; } = new List<DataArray>();
     }
 }

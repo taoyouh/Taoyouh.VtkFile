@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Taoyouh.VtkFile.Xml;
 
 namespace Taoyouh.VtkFile
 {
@@ -10,17 +11,26 @@ namespace Taoyouh.VtkFile
     public class CellsBuilder
     {
         // For definitions of each arrays see VTKUsersGuide.pdf p.487
-        internal List<int> Connectivity { get; } = new List<int>();
+        private readonly List<int> connectivity = new List<int>();
 
-        internal List<int> Offsets { get; } = new List<int>();
+        private readonly List<int> offsets = new List<int>();
 
-        internal List<byte> Types { get; } = new List<byte>();
+        private readonly List<byte> types = new List<byte>();
+
+        public int Count => types.Count;
 
         public void AddCell(IEnumerable<int> points, CellType type)
         {
-            Connectivity.AddRange(points);
-            Offsets.Add(Connectivity.Count);
-            Types.Add((byte)type);
+            connectivity.AddRange(points);
+            offsets.Add(connectivity.Count);
+            types.Add((byte)type);
+        }
+
+        public Cells ToXml()
+        {
+            var cells = new Cells();
+            cells.FillCells(connectivity, offsets, types);
+            return cells;
         }
     }
 }

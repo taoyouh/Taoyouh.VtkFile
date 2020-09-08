@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Taoyouh.VtkFile;
 
-namespace Taoyouh.VtkFile.Tests
+namespace Taoyouh.VtkFile.Xml.Tests
 {
     [TestClass]
     public class DataArrayTests

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Taoyouh.VtkFile
+namespace Taoyouh.VtkFile.Xml
 {
     public class UnstructuredGrid
     {
         [XmlElement("Piece")]
-        public List<Piece> Pieces { get; set; }
+        public List<UnstructuredGridPiece> Pieces { get; } = new List<UnstructuredGridPiece>();
     }
 }

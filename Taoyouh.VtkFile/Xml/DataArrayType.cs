@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Taoyouh.VtkFile
+namespace Taoyouh.VtkFile.Xml
 {
     /// <summary>
     /// Possible values of "type" in DataArray.
@@ -10,6 +10,7 @@ namespace Taoyouh.VtkFile
     /// </summary>
     public enum DataArrayType
     {
+#pragma warning disable SA1602 // Enumeration items should be documented
         Int8,
         UInt8,
         Int16,
@@ -19,6 +20,7 @@ namespace Taoyouh.VtkFile
         Int64,
         UInt64,
         Float32,
-        Float64
+        Float64,
+#pragma warning restore SA1602 // Enumeration items should be documented
     }
 }

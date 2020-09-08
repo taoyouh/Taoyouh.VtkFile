@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Taoyouh.VtkFile
+namespace Taoyouh.VtkFile.Xml
 {
     public class DataArray
     {
@@ -30,14 +30,14 @@ namespace Taoyouh.VtkFile
         public string NumberOfComponentsString
         {
             get => NumberOfComponents?.ToString(CultureInfo.InvariantCulture);
-            set => NumberOfComponents = value == null ? null : (uint?)uint.Parse(value);
+            set => NumberOfComponents = value == null ? null : (uint?)uint.Parse(value, CultureInfo.InvariantCulture);
         }
 
         [XmlAttribute("offset")]
         public string OffsetString
         {
             get => Offset?.ToString(CultureInfo.InvariantCulture);
-            set => Offset = value == null ? null : (uint?)uint.Parse(value);
+            set => Offset = value == null ? null : (uint?)uint.Parse(value, CultureInfo.InvariantCulture);
         }
 
         public void FillData(IEnumerable<long> data)

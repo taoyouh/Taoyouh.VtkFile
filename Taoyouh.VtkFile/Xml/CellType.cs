@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Taoyouh.VtkFile
+namespace Taoyouh.VtkFile.Xml
 {
     public enum CellType : byte
     {
+        // Refer to VTK user guide for definitons of each cell type.
+#pragma warning disable SA1602 // Enumeration items should be documented
         Vertex = 1,
         PolyVertex,
         Line,
@@ -22,5 +24,6 @@ namespace Taoyouh.VtkFile
         Pyramid,
         PentagonalPrism,
         HexagonalPrism,
+#pragma warning restore SA1602 // Enumeration items should be documented
     }
 }

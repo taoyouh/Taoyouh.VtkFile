@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Taoyouh.VtkFile.Tests
+namespace Taoyouh.VtkFile.Xml.Tests
 {
     [TestClass]
     public class VTKFileTests
@@ -18,8 +18,7 @@ namespace Taoyouh.VtkFile.Tests
             var grid = new UnstructuredGrid();
             vtkFile.SetUnstructuredGrid(grid);
 
-            grid.Pieces = new List<Piece>();
-            var piece = new Piece();
+            var piece = new UnstructuredGridPiece();
             grid.Pieces.Add(piece);
 
             piece.Points = new Points();
@@ -30,13 +29,13 @@ namespace Taoyouh.VtkFile.Tests
                     1, 0, 0,
                     0, 1, 0,
                     0, 0, 1,
-                },
-                3);
+                });
 
-            var cellsBuilder = new CellsBuilder();
-            cellsBuilder.AddCell(new int[] { 0, 1, 2, 3 }, CellType.Tetra);
             piece.Cells = new Cells();
-            piece.Cells.FillCells(cellsBuilder);
+            piece.Cells.FillCells(
+                new int[] { 0, 1, 2, 3 },
+                new int[] { 4 },
+                new byte[] { (byte)CellType.Tetra });
 
             piece.NumberOfCells = 1;
             piece.NumberOfPoints = 4;

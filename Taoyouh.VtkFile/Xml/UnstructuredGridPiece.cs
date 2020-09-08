@@ -5,9 +5,12 @@ using System.Globalization;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Taoyouh.VtkFile
+namespace Taoyouh.VtkFile.Xml
 {
-    public class Piece
+    /// <summary>
+    /// A piece of unstructured grid.
+    /// </summary>
+    public class UnstructuredGridPiece
     {
         [XmlIgnore]
         public int? NumberOfPoints { get; set; }
