@@ -55,7 +55,7 @@ namespace Taoyouh.VtkFile.Xml
         public void FillData(IEnumerable<byte> data)
             => FillData(data, DataArrayType.UInt8);
 
-        private void FillData<T>(IEnumerable<T> data, DataArrayType type)
+        public void FillData<T>(IEnumerable<T> data, DataArrayType type)
             where T : IConvertible
         {
             StringBuilder contentString = new StringBuilder();

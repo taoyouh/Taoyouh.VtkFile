@@ -23,6 +23,13 @@ namespace Taoyouh.VtkFile.Tests
             pieceBuilder.Points.AddPoint(0, 0, 1);
             pieceBuilder.Cells.AddCell(new[] { 0, 1, 2, 3 }, Xml.CellType.Tetra);
 
+            var pointData = new DataArrayBuilder<int>("point data");
+            pointData.AddScalarDatum(0);
+            pointData.AddScalarDatum(1);
+            pointData.AddScalarDatum(2);
+            pointData.AddScalarDatum(3);
+            pieceBuilder.PointData.DataArrays.Add(pointData);
+
             builder.Pieces.Add(pieceBuilder);
             var vtkFile = builder.ToXml();
 

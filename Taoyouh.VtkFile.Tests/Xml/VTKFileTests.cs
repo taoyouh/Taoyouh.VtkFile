@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Taoyouh.VtkFile.Tests;
 
 namespace Taoyouh.VtkFile.Xml.Tests
 {
@@ -11,7 +12,7 @@ namespace Taoyouh.VtkFile.Xml.Tests
     public class VTKFileTests
     {
         [TestMethod]
-        public void VTKFileTest()
+        public void XmlTest()
         {
             var vtkFile = new VTKFile();
 
@@ -40,11 +41,20 @@ namespace Taoyouh.VtkFile.Xml.Tests
             piece.NumberOfCells = 1;
             piece.NumberOfPoints = 4;
 
-            var xmlSerializer = new XmlSerializer(typeof(VTKFile));
-            using (var stream = File.Create("VTKFileTest.vtu"))
+            piece.PointData = new PointData();
+            piece.PointData.DataArrays.Add(new DataArray()
             {
-                xmlSerializer.Serialize(stream, vtkFile);
-            }
+                Name = "data array 1",
+            });
+
+            var element = XmlHelper.ToXElement(vtkFile);
+            var gridElement = element.Element("UnstructuredGrid");
+            var pieceElement = gridElement.Element("Piece");
+            Assert.IsNotNull(pieceElement.Element("Points").Element("DataArray"));
+            Assert.IsNotNull(pieceElement.Element("Cells").Element("DataArray"));
+            Assert.AreEqual(
+                "data array 1",
+                pieceElement.Element("PointData").Element("DataArray").Attribute("Name").Value);
         }
     }
 }
