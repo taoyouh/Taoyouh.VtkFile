@@ -9,7 +9,7 @@
   "settings": {
     "documentationRules": {
       "companyName": "Huang, Zhaoquan",
-      "copyrightText": "Copyright (c) Huang, Zhaoquan. All rights reserved"
+      "copyrightText": "Copyright (c) Huang, Zhaoquan. All rights reserved.\nThis file may be licensed to you as part of the project (see license file if exists),\nbut the copyright info in this file should not be removed."
     },
     "orderingRules": {
       "usingDirectivesPlacement": "outsideNamespace"

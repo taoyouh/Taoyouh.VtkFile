@@ -6,6 +6,9 @@
 
   <PropertyGroup>
     <CodeAnalysisRuleSet>../StyleRules.ruleset</CodeAnalysisRuleSet>
+    <Version>1.0.0-rc1</Version>
+    <Company>Huang, Zhaoquan</Company>
+    <Authors>Huang, Zhaoquan</Authors>
   </PropertyGroup>
 
   <ItemGroup>
