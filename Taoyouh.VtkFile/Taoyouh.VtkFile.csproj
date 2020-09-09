@@ -9,6 +9,9 @@
     <Version>1.0.0-rc1</Version>
     <Company>Huang, Zhaoquan</Company>
     <Authors>Huang, Zhaoquan</Authors>
+    <Copyright>Copyright (c) Huang, Zhaoquan. All rights reserved</Copyright>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
