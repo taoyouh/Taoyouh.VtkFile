@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Taoyouh.VtkFile;
+using Taoyouh.VtkFile.Tests;
 
 namespace Taoyouh.VtkFile.Xml.Tests
 {
@@ -12,7 +13,7 @@ namespace Taoyouh.VtkFile.Xml.Tests
     public class DataArrayTests
     {
         [TestMethod]
-        public void DataArrayTest()
+        public void XmlTest()
         {
             DataArray array = new DataArray();
             array.FillData(new long[]
@@ -20,16 +21,8 @@ namespace Taoyouh.VtkFile.Xml.Tests
                 1, 2, 3, 4, 5,
             });
 
-            var serializer = new XmlSerializer(typeof(DataArray), string.Empty);
-            using (var stream = new MemoryStream())
-            {
-                serializer.Serialize(stream, array);
-                stream.Seek(0, SeekOrigin.Begin);
-                using (var reader = new StreamReader(stream))
-                {
-                    var str = reader.ReadToEnd();
-                }
-            }
+            var element = XmlHelper.ToXElement(array);
+            Assert.AreEqual("Int64", element.Attribute("type").Value);
         }
     }
 }
