@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -37,6 +38,16 @@ namespace Taoyouh.VtkFile.Xml
         {
             UnstructuredGrid = grid;
             Type = VTKFileType.UnstructuredGrid;
+        }
+
+        /// <summary>
+        /// Saves to a VTK XML file (.vti/.vtp/.vtr/...).
+        /// </summary>
+        /// <param name="stream">The file stream.</param>
+        public void Save(Stream stream)
+        {
+            var xmlSerializer = new XmlSerializer(typeof(VTKFile));
+            xmlSerializer.Serialize(stream, this);
         }
     }
 }

@@ -70,6 +70,11 @@ namespace Taoyouh.VtkFile.Xml.Tests
             Assert.AreEqual(
                 "data array 2",
                 pieceElement.Element("CellData").Element("DataArray").Attribute("Name").Value);
+
+            using (var stream = new MemoryStream())
+            {
+                vtkFile.Save(stream);
+            }
         }
     }
 }
