@@ -47,10 +47,16 @@ namespace Taoyouh.VtkFile.Xml.Tests
             piece.NumberOfCells = 1;
             piece.NumberOfPoints = 4;
 
-            piece.PointData = new PointData();
+            piece.PointData = new PointCellData();
             piece.PointData.DataArrays.Add(new DataArray()
             {
                 Name = "data array 1",
+            });
+
+            piece.CellData = new PointCellData();
+            piece.CellData.DataArrays.Add(new DataArray()
+            {
+                Name = "data array 2",
             });
 
             var element = XmlHelper.ToXElement(vtkFile);
@@ -61,6 +67,9 @@ namespace Taoyouh.VtkFile.Xml.Tests
             Assert.AreEqual(
                 "data array 1",
                 pieceElement.Element("PointData").Element("DataArray").Attribute("Name").Value);
+            Assert.AreEqual(
+                "data array 2",
+                pieceElement.Element("CellData").Element("DataArray").Attribute("Name").Value);
         }
     }
 }

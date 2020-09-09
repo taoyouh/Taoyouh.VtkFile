@@ -36,6 +36,10 @@ namespace Taoyouh.VtkFile.Tests
             pointData.AddScalarDatum(3);
             pieceBuilder.PointData.DataArrays.Add(pointData);
 
+            var cellData = new DataArrayBuilder<int>("cell data");
+            cellData.AddScalarDatum(111);
+            pieceBuilder.CellData.DataArrays.Add(cellData);
+
             builder.Pieces.Add(pieceBuilder);
             var vtkFile = builder.ToXml();
 

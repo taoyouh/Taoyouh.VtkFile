@@ -25,10 +25,10 @@ namespace Taoyouh.VtkFile.Xml
         public int? NumberOfCells { get; set; }
 
         [XmlElement]
-        public PointData PointData { get; set; }
+        public PointCellData PointData { get; set; }
 
         [XmlElement]
-        public PointData CellData { get; set; }
+        public PointCellData CellData { get; set; }
 
         [XmlElement]
         public Points Points { get; set; }

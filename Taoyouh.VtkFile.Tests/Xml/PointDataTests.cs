@@ -16,7 +16,7 @@ namespace Taoyouh.VtkFile.Xml.Tests
         [TestMethod]
         public void XmlTest()
         {
-            var pointData = new PointData();
+            var pointData = new PointCellData();
             const string name = "Some random name 23490371";
             pointData.DataArrays.Add(new DataArray()
             {

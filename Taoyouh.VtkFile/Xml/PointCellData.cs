@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace Taoyouh.VtkFile.Xml
 {
-    public class PointData
+    public class PointCellData
     {
         /// <summary>
         /// The name of the active scalars array, if any.

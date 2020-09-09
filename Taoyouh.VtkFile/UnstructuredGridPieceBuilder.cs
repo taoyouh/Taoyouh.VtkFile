@@ -17,7 +17,9 @@ namespace Taoyouh.VtkFile
 
         public CellsBuilder Cells { get; } = new CellsBuilder();
 
-        public PointDataBuilder PointData { get; } = new PointDataBuilder();
+        public PointCellDataBuilder PointData { get; } = new PointCellDataBuilder();
+
+        public PointCellDataBuilder CellData { get; } = new PointCellDataBuilder();
 
         public UnstructuredGridPiece ToXml()
         {
@@ -25,6 +27,7 @@ namespace Taoyouh.VtkFile
             piece.Cells = Cells.ToXml();
             piece.Points = Points.ToXml();
             piece.PointData = PointData.ToXml();
+            piece.CellData = CellData.ToXml();
             piece.NumberOfCells = Cells.Count;
             piece.NumberOfPoints = Points.Count;
             return piece;

@@ -11,7 +11,7 @@ using Taoyouh.VtkFile.Xml;
 
 namespace Taoyouh.VtkFile
 {
-    public class PointDataBuilder
+    public class PointCellDataBuilder
     {
         public List<IDataArrayBuilder> DataArrays { get; } = new List<IDataArrayBuilder>();
 
@@ -25,9 +25,9 @@ namespace Taoyouh.VtkFile
 
         public IDataArrayBuilder TCoords { get; set; }
 
-        public PointData ToXml()
+        public PointCellData ToXml()
         {
-            var pointData = new PointData()
+            var pointData = new PointCellData()
             {
                 Scalars = Scalars?.Name,
                 Vectors = Vectors?.Name,
