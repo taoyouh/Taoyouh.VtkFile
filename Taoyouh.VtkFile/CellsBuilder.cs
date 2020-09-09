@@ -12,7 +12,7 @@ using Taoyouh.VtkFile.Xml;
 namespace Taoyouh.VtkFile
 {
     /// <summary>
-    /// Builder for building VTK cell data. Used in <see cref="Cells.FillCells(CellsBuilder)"/>.
+    /// The builder to store data for building a <see cref="Cells"/> XML element.
     /// </summary>
     public class CellsBuilder
     {
@@ -23,8 +23,16 @@ namespace Taoyouh.VtkFile
 
         private readonly List<byte> types = new List<byte>();
 
+        /// <summary>
+        /// The count of already-added cells.
+        /// </summary>
         public int Count => types.Count;
 
+        /// <summary>
+        /// Adds a cell into the internal list.
+        /// </summary>
+        /// <param name="points">The 0-based numbers of points in a cell.</param>
+        /// <param name="type">The type of the cell.</param>
         public void AddCell(IEnumerable<int> points, CellType type)
         {
             connectivity.AddRange(points);
@@ -32,6 +40,10 @@ namespace Taoyouh.VtkFile
             types.Add((byte)type);
         }
 
+        /// <summary>
+        /// Builds the XML element for serializing.
+        /// </summary>
+        /// <returns>The <see cref="Cells"/> instance that represents the XML element.</returns>
         public Cells ToXml()
         {
             var cells = new Cells();

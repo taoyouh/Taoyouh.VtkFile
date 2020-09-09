@@ -11,10 +11,20 @@ using Taoyouh.VtkFile.Xml;
 
 namespace Taoyouh.VtkFile
 {
+    /// <summary>
+    /// The builder to store data for building an <see cref="UnstructuredGrid"/> XML element.
+    /// </summary>
     public class UnstructuredGridFileBuilder
     {
+        /// <summary>
+        /// The unrelated pieces of the grid.
+        /// </summary>
         public List<UnstructuredGridPieceBuilder> Pieces { get; } = new List<UnstructuredGridPieceBuilder>();
 
+        /// <summary>
+        /// Builds the XML element for serializing.
+        /// </summary>
+        /// <returns>The <see cref="VTKFile"/> instance that represents the XML element.</returns>
         public VTKFile ToXml()
         {
             var unstructuredGrid = new UnstructuredGrid();

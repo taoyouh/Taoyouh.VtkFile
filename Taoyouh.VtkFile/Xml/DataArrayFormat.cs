@@ -8,6 +8,9 @@ using System.Xml.Serialization;
 
 namespace Taoyouh.VtkFile.Xml
 {
+    /// <summary>
+    /// The values of "format" attribute in <see cref="DataArray"/> XML element.
+    /// </summary>
     public enum DataArrayFormat
     {
         // Refer to VTK user guide for definitions of each data array format.

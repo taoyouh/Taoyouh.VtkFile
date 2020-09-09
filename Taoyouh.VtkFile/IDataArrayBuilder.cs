@@ -9,10 +9,22 @@ using Taoyouh.VtkFile.Xml;
 
 namespace Taoyouh.VtkFile
 {
+    /// <summary>
+    /// The common interface of <see cref="DataArrayBuilder{T}"/>.
+    /// The class can produce the data structure representing a "DataArray" element.
+    /// </summary>
+    /// <see cref="DataArrayBuilder{T}"/>
     public interface IDataArrayBuilder
     {
+        /// <summary>
+        /// The name of the data array.
+        /// </summary>
         string Name { get; }
 
+        /// <summary>
+        /// Builds the XML element for serializing.
+        /// </summary>
+        /// <returns>The <see cref="DataArray"/> instance that represents the XML element.</returns>
         DataArray ToXml();
     }
 }

@@ -9,6 +9,9 @@ using System.Xml.Serialization;
 
 namespace Taoyouh.VtkFile.Xml
 {
+    /// <summary>
+    /// Represents the "Cells" XML element under <see cref="UnstructuredGridPiece"/>.
+    /// </summary>
     public class Cells
     {
         [XmlElement("DataArray")]

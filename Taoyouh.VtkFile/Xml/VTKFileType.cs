@@ -6,6 +6,9 @@
 
 namespace Taoyouh.VtkFile.Xml
 {
+    /// <summary>
+    /// The type of a VTK file. Represents the value in "type" attribute in <see cref="VTKFile"/>.
+    /// </summary>
     public enum VTKFileType
     {
         /// <summary>

@@ -11,6 +11,9 @@ using System.Xml.Serialization;
 
 namespace Taoyouh.VtkFile.Xml
 {
+    /// <summary>
+    /// Represents the root element of a VTK XML file.
+    /// </summary>
     public class VTKFile
     {
         [XmlAttribute("type")]

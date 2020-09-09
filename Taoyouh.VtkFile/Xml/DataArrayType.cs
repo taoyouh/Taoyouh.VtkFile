@@ -11,8 +11,8 @@ using System.Text;
 namespace Taoyouh.VtkFile.Xml
 {
     /// <summary>
-    /// Possible values of "type" in DataArray.
-    /// See VTKUsersGuide.pdf p.501.
+    /// The values of "type" attribute in <see cref="DataArray"/> XML element.
+    /// See VTK User's Guide 11th Edition p.501.
     /// </summary>
     public enum DataArrayType
     {

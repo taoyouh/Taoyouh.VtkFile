@@ -9,6 +9,9 @@ using System.Xml.Serialization;
 
 namespace Taoyouh.VtkFile.Xml
 {
+    /// <summary>
+    /// Represents the "Points" XML element under "Piece" element (see <see cref="UnstructuredGridPiece"/>).
+    /// </summary>
     public class Points
     {
         public DataArray DataArray { get; set; }

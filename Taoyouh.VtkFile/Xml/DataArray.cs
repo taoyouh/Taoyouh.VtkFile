@@ -12,6 +12,9 @@ using System.Xml.Serialization;
 
 namespace Taoyouh.VtkFile.Xml
 {
+    /// <summary>
+    /// Represents a "DataArray" XML element.
+    /// </summary>
     public class DataArray
     {
         [XmlAttribute("type")]

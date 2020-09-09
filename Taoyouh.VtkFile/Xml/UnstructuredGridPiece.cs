@@ -15,6 +15,7 @@ namespace Taoyouh.VtkFile.Xml
 {
     /// <summary>
     /// A piece of unstructured grid.
+    /// Represents the "Piece" XML element under <see cref="UnstructuredGrid"/>.
     /// </summary>
     public class UnstructuredGridPiece
     {

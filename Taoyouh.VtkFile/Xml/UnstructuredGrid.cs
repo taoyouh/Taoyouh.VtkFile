@@ -11,6 +11,9 @@ using System.Xml.Serialization;
 
 namespace Taoyouh.VtkFile.Xml
 {
+    /// <summary>
+    /// Represents the "UnstructuredGrid" XML element under <see cref="VTKFile"/>.
+    /// </summary>
     public class UnstructuredGrid
     {
         [XmlElement("Piece")]
