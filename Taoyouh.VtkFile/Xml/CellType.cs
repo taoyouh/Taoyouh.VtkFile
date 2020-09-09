@@ -17,6 +17,7 @@ namespace Taoyouh.VtkFile.Xml
     public enum CellType : byte
     {
 #pragma warning disable SA1602 // Enumeration items should be documented
+#pragma warning disable CS1591 // 缺少对公共可见类型或成员的 XML 注释
         Vertex = 1,
         PolyVertex,
         Line,
@@ -33,6 +34,7 @@ namespace Taoyouh.VtkFile.Xml
         Pyramid,
         PentagonalPrism,
         HexagonalPrism,
+#pragma warning restore CS1591 // 缺少对公共可见类型或成员的 XML 注释
 #pragma warning restore SA1602 // Enumeration items should be documented
     }
 }

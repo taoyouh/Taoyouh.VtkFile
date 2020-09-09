@@ -16,12 +16,23 @@ namespace Taoyouh.VtkFile.Xml
     /// </summary>
     public class VTKFile
     {
+        /// <summary>
+        /// The type of the VTK file. The "type" XML attribute of the "VTKFile" element.
+        /// </summary>
         [XmlAttribute("type")]
         public VTKFileType Type { get; set; }
 
+        /// <summary>
+        /// The data of the unstructured grid. The "UnstructuredGrid" XML element under the "VTKFile" element.
+        /// </summary>
         [XmlElement]
         public UnstructuredGrid UnstructuredGrid { get; set; }
 
+        /// <summary>
+        /// Sets the content to the given "UnstructuredGrid" element and
+        /// sets <see cref="Type"/> correspondingly.
+        /// </summary>
+        /// <param name="grid">The given unstructured grid.</param>
         public void SetUnstructuredGrid(UnstructuredGrid grid)
         {
             UnstructuredGrid = grid;

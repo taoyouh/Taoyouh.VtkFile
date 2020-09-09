@@ -14,8 +14,15 @@ namespace Taoyouh.VtkFile.Xml
     /// </summary>
     public class Points
     {
+        /// <summary>
+        /// The "DataArray" element that represents the components of point coordinates.
+        /// </summary>
         public DataArray DataArray { get; set; }
 
+        /// <summary>
+        /// Fills the data array with point coordinates.
+        /// </summary>
+        /// <param name="points">All coordinate components ordered by point.</param>
         public void FillPoints(IEnumerable<double> points)
         {
             var dataArray = new DataArray();

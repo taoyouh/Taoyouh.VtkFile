@@ -19,24 +19,45 @@ namespace Taoyouh.VtkFile.Xml
     /// </summary>
     public class UnstructuredGridPiece
     {
+        /// <summary>
+        /// The total number of points in the piece of grid.
+        /// </summary>
         [XmlIgnore]
         public int? NumberOfPoints { get; set; }
 
+        /// <summary>
+        /// The total number of cells in the piece of grid.
+        /// </summary>
         [XmlIgnore]
         public int? NumberOfCells { get; set; }
 
+        /// <summary>
+        /// The point data (values defined on points) of the piece of grid.
+        /// </summary>
         [XmlElement]
         public PointCellData PointData { get; set; }
 
+        /// <summary>
+        /// The cell data (values defined on cells) of the piece of grid.
+        /// </summary>
         [XmlElement]
         public PointCellData CellData { get; set; }
 
+        /// <summary>
+        /// The point coordinates of the piece of grid.
+        /// </summary>
         [XmlElement]
         public Points Points { get; set; }
 
+        /// <summary>
+        /// The cells of the piece of grid.
+        /// </summary>
         [XmlElement]
         public Cells Cells { get; set; }
 
+        /// <summary>
+        /// The string of <see cref="NumberOfPoints"/> for XML serialization.
+        /// </summary>
         [XmlAttribute("NumberOfPoints")]
         public string NumberOfPointsString
         {
@@ -44,6 +65,9 @@ namespace Taoyouh.VtkFile.Xml
             set => NumberOfPoints = value == null ? null : (int?)int.Parse(value);
         }
 
+        /// <summary>
+        /// The string of <see cref="NumberOfCells"/> for XML serialization.
+        /// </summary>
         [XmlAttribute("NumberOfCells")]
         public string NumberOfCellsString
         {

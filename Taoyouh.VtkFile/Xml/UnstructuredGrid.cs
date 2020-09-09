@@ -16,6 +16,9 @@ namespace Taoyouh.VtkFile.Xml
     /// </summary>
     public class UnstructuredGrid
     {
+        /// <summary>
+        /// Unrelated pieces of the grid.Represents  "Piece" XML elements under "UnstructuredGrid".
+        /// </summary>
         [XmlElement("Piece")]
         public List<UnstructuredGridPiece> Pieces { get; } = new List<UnstructuredGridPiece>();
     }

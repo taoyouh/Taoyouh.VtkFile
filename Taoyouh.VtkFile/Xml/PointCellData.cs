@@ -46,6 +46,9 @@ namespace Taoyouh.VtkFile.Xml
         [XmlAttribute]
         public string TCoords { get; set; }
 
+        /// <summary>
+        /// The list of data arrays (actual point / cell data).
+        /// </summary>
         [XmlElement("DataArray")]
         public List<DataArray> DataArrays { get; } = new List<DataArray>();
     }
