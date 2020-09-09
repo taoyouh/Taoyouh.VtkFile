@@ -6,12 +6,17 @@
 
   <PropertyGroup>
     <CodeAnalysisRuleSet>../StyleRules.ruleset</CodeAnalysisRuleSet>
-    <Version>1.0.0-rc1</Version>
+    <Version>1.0.0-rc2</Version>
     <Company>Huang, Zhaoquan</Company>
     <Authors>Huang, Zhaoquan</Authors>
     <Copyright>Copyright (c) Huang, Zhaoquan. All rights reserved</Copyright>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Description>The library for writting unstructured grids into VTK XML files.</Description>
+    <PackageTags>VTK</PackageTags>
+    <RepositoryUrl>https://github.com/taoyouh/Taoyouh.VtkFile.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/taoyouh/Taoyouh.VtkFile</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
