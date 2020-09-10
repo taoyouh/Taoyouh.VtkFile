@@ -1,0 +1,71 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs"#>
+<#
+    var types = new Dictionary<string, string>
+    {
+        ["byte"] = "UInt8",
+        ["sbyte"] = "Int8",
+        ["short"] = "Int16",
+        ["ushort"] = "UInt16",
+        ["int"] = "Int32",
+        ["uint"] = "UInt32",
+        ["long"] = "Int64",
+        ["ulong"] = "UInt64",
+        ["float"] = "Float32",
+        ["double"] = "Float64",
+    };
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Globalization;
+using System.Text;
+
+namespace Taoyouh.VtkFile.Xml
+{
+	public partial class DataArray
+	{
+<#
+	foreach (var pair in types)
+	{
+#>
+		public void FillData(IEnumerable<<#= pair.Key #>> data)
+		{
+            if (Format == DataArrayFormat.Ascii)
+            {
+                StringBuilder contentString = new StringBuilder();
+                foreach (var datum in data)
+                {
+                    contentString.Append(datum.ToString(CultureInfo.InvariantCulture));
+                    contentString.Append(' ');
+                }
+
+                if (contentString.Length > 0)
+                {
+                    contentString.Remove(contentString.Length - 1, 1);
+                }
+
+                Content = contentString.ToString();
+            }
+            else if (Format == DataArrayFormat.Binary)
+            {
+                List<byte> bytes = new List<byte>();
+                foreach (var datum in data)
+                {
+                    bytes.AddRange(BitConverter.GetBytes(datum));
+                }
+
+                BinaryContent = bytes.ToArray();
+            }
+
+            Type = DataArrayType.<#= pair.Value #>;
+		}
+<#
+    }
+#>
+    }
+}
