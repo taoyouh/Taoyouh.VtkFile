@@ -6,7 +6,7 @@
 
   <PropertyGroup>
     <CodeAnalysisRuleSet>../StyleRules.ruleset</CodeAnalysisRuleSet>
-    <Version>1.0.0-rc2</Version>
+    <Version>1.0.0-rc3</Version>
     <Company>Huang, Zhaoquan</Company>
     <Authors>Huang, Zhaoquan</Authors>
     <Copyright>Copyright (c) Huang, Zhaoquan. All rights reserved</Copyright>
@@ -48,8 +48,7 @@
     <Exec Command="cd &quot;$(ProjectDir)&quot; &amp;&amp; dotnet tool restore" />
   </Target>
 
-  <Target Name="TaoyouhT4Process" DependsOnTargets="TaoyouhRestoreDotnetTools" BeforeTargets="CoreCompile"
-          Inputs="@(T4Template)" Outputs="%(T4Template.RelativeDir)%(T4Template.Filename).cs">
+  <Target Name="TaoyouhT4Process" DependsOnTargets="TaoyouhRestoreDotnetTools" BeforeTargets="CoreCompile" Inputs="@(T4Template)" Outputs="%(T4Template.RelativeDir)%(T4Template.Filename).cs">
     <Exec Command="dotnet t4 @(T4Template)" />
     <ItemGroup>
       <Compile Include="%(T4Template.RelativeDir)%(T4Template.Filename).cs" Exclude="@(Compile)" />
