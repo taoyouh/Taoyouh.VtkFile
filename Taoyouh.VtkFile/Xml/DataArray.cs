@@ -19,7 +19,7 @@ namespace Taoyouh.VtkFile.Xml
     /// See VTK User's Guide 11th Edition p.487 for details.
     /// The documents of the members are taken from the VTK User's Guide.
     /// </remarks>
-    public class DataArray
+    public partial class DataArray
     {
         /// <summary>
         /// Gets or sets the data type of a single component of the array.
@@ -77,66 +77,6 @@ namespace Taoyouh.VtkFile.Xml
         {
             get => Offset?.ToString(CultureInfo.InvariantCulture);
             set => Offset = value == null ? null : (uint?)uint.Parse(value, CultureInfo.InvariantCulture);
-        }
-
-        /// <summary>
-        /// Clears and fills the data array with given data.
-        /// </summary>
-        /// <param name="data">The collection of all components to be filled with.</param>
-        public void FillData(IEnumerable<long> data)
-            => FillData(data, DataArrayType.Int64);
-
-        /// <summary>
-        /// Clears and fills the data array with given data.
-        /// </summary>
-        /// <param name="data">The collection of all components to be filled with.</param>
-        public void FillData(IEnumerable<int> data)
-            => FillData(data, DataArrayType.Int32);
-
-        /// <summary>
-        /// Clears and fills the data array with given data.
-        /// </summary>
-        /// <param name="data">The collection of all components to be filled with.</param>
-        public void FillData(IEnumerable<double> data)
-            => FillData(data, DataArrayType.Float64);
-
-        /// <summary>
-        /// Clears and fills the data array with given data.
-        /// </summary>
-        /// <param name="data">The collection of all components to be filled with.</param>
-        public void FillData(IEnumerable<float> data)
-            => FillData(data, DataArrayType.Float32);
-
-        /// <summary>
-        /// Clears and fills the data array with given data.
-        /// </summary>
-        /// <param name="data">The collection of all components to be filled with.</param>
-        public void FillData(IEnumerable<byte> data)
-            => FillData(data, DataArrayType.UInt8);
-
-        /// <summary>
-        /// Clears and fills the data array with given data.
-        /// </summary>
-        /// <typeparam name="T">The type of a single component.</typeparam>
-        /// <param name="data">The collection of all components to be filled with.</param>
-        /// <param name="type">The VTK data type corresponding to <typeparamref name="T"/>.</param>
-        public void FillData<T>(IEnumerable<T> data, DataArrayType type)
-            where T : IConvertible
-        {
-            StringBuilder contentString = new StringBuilder();
-            foreach (var datum in data)
-            {
-                contentString.Append(datum.ToString(CultureInfo.InvariantCulture));
-                contentString.Append(' ');
-            }
-
-            if (contentString.Length > 0)
-            {
-                contentString.Remove(contentString.Length - 1, 1);
-            }
-
-            Type = type;
-            Content = contentString.ToString();
         }
     }
 }

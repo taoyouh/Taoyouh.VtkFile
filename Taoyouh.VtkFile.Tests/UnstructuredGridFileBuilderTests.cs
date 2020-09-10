@@ -29,14 +29,14 @@ namespace Taoyouh.VtkFile.Tests
             pieceBuilder.Points.AddPoint(0, 0, 1);
             pieceBuilder.Cells.AddCell(new[] { 0, 1, 2, 3 }, Xml.CellType.Tetra);
 
-            var pointData = new DataArrayBuilder<int>("point data");
+            var pointData = new DataArrayBuilderInt32("point data");
             pointData.AddScalarDatum(0);
             pointData.AddScalarDatum(1);
             pointData.AddScalarDatum(2);
             pointData.AddScalarDatum(3);
             pieceBuilder.PointData.DataArrays.Add(pointData);
 
-            var cellData = new DataArrayBuilder<int>("cell data");
+            var cellData = new DataArrayBuilderInt32("cell data");
             cellData.AddScalarDatum(111);
             pieceBuilder.CellData.DataArrays.Add(cellData);
 

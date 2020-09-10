@@ -10,10 +10,9 @@ using Taoyouh.VtkFile.Xml;
 namespace Taoyouh.VtkFile
 {
     /// <summary>
-    /// The common interface of <see cref="DataArrayBuilder{T}"/>.
+    /// The common interface of DataArrayBuilder's.
     /// The class can produce the data structure representing a "DataArray" element.
     /// </summary>
-    /// <see cref="DataArrayBuilder{T}"/>
     public interface IDataArrayBuilder
     {
         /// <summary>

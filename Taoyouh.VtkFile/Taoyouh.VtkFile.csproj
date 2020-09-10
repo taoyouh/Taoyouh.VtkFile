@@ -39,4 +39,20 @@
       <Link>stylecop.json</Link>
     </AdditionalFiles>
   </ItemGroup>
+
+  <ItemGroup>
+    <T4Template Include="**/*.tt" />
+  </ItemGroup>
+
+  <Target Name="TaoyouhRestoreDotnetTools">
+    <Exec Command="cd &quot;$(ProjectDir)&quot; &amp;&amp; dotnet tool restore" />
+  </Target>
+
+  <Target Name="TaoyouhT4Process" DependsOnTargets="TaoyouhRestoreDotnetTools" BeforeTargets="CoreCompile"
+          Inputs="@(T4Template)" Outputs="%(T4Template.RelativeDir)%(T4Template.Filename).cs">
+    <Exec Command="dotnet t4 @(T4Template)" />
+    <ItemGroup>
+      <Compile Include="%(T4Template.RelativeDir)%(T4Template.Filename).cs" Exclude="@(Compile)" />
+    </ItemGroup>
+  </Target>
 </Project>

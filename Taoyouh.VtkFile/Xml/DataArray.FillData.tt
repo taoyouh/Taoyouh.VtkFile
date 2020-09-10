@@ -1,0 +1,77 @@
+﻿// <copyright file="DataArray.FillData.cs" company="Huang, Zhaoquan">
+// Copyright (c) Huang, Zhaoquan. All rights reserved.
+// This file may be licensed to you as part of the project (see license file if exists),
+// but the copyright info in this file should not be removed.
+// </copyright>
+<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs"#>
+<#@ include file="Xml/DataArrayTypes.ttinclude"#>
+
+// The following code is generated from template DataArray.FillData.tt
+#pragma warning disable SA1412 // Store files as UTF-8 with byte order mark
+
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+
+namespace Taoyouh.VtkFile.Xml
+{
+    /// <summary>
+    /// The type-specific definitions of method "FillData".
+    /// </summary>
+    public partial class DataArray
+    {
+<#
+    bool isFirst = true;
+    foreach (var pair in dataArrayTypes)
+    {
+        if (isFirst)
+        {
+            isFirst = false;
+        }
+        else
+        {
+#>
+
+<#
+        }
+#>
+        /// <summary>
+        /// Clears and fills the data array with given data.
+        /// </summary>
+        /// <param name="data">The collection of all components to be filled with.</param>
+        public void FillData(IEnumerable<<#= pair.Key #>> data)
+        {
+            if (Format == DataArrayFormat.Ascii)
+            {
+                StringBuilder contentString = new StringBuilder();
+                foreach (var datum in data)
+                {
+                    contentString.Append(datum.ToString(CultureInfo.InvariantCulture));
+                    contentString.Append(' ');
+                }
+
+                if (contentString.Length > 0)
+                {
+                    contentString.Remove(contentString.Length - 1, 1);
+                }
+
+                Content = contentString.ToString();
+                Type = DataArrayType.<#= pair.Value #>;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+        }
+<#
+    }
+#>
+    }
+}
