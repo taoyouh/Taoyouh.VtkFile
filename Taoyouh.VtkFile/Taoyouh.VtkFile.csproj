@@ -6,7 +6,7 @@
 
   <PropertyGroup>
     <CodeAnalysisRuleSet>../StyleRules.ruleset</CodeAnalysisRuleSet>
-    <Version>1.0.0-rc3</Version>
+    <Version>1.0.0-rc4</Version>
     <Company>Huang, Zhaoquan</Company>
     <Authors>Huang, Zhaoquan</Authors>
     <Copyright>Copyright (c) Huang, Zhaoquan. All rights reserved</Copyright>
@@ -17,6 +17,9 @@
     <RepositoryUrl>https://github.com/taoyouh/Taoyouh.VtkFile.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/taoyouh/Taoyouh.VtkFile</PackageProjectUrl>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
+    <PackageReleaseNotes>1.0.0-rc4: Add support of quadratic cell types.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

@@ -34,6 +34,13 @@ namespace Taoyouh.VtkFile.Xml
         Pyramid,
         PentagonalPrism,
         HexagonalPrism,
+        QuadraticEdge = 21,
+        QuadraticTriangle,
+        QuadraticQuad,
+        QuadraticTetra,
+        QuadraticHexahedron,
+        QuadraticWedge,
+        QuadraticPyramid,
 #pragma warning restore CS1591 // 缺少对公共可见类型或成员的 XML 注释
 #pragma warning restore SA1602 // Enumeration items should be documented
     }

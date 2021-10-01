@@ -2,11 +2,14 @@
 A .NET Standard (2.0) library for writing VTK XML files. (Currently only unstructured grid is supported.)
 
 ## Usage
-1. The library can be obtained from [Nuget](https://www.nuget.org/packages/Taoyouh.VtkFile/1.0.0-rc3).
+1. The library can be obtained from [Nuget](https://www.nuget.org/packages/Taoyouh.VtkFile/1.0.0-rc4).
 
 2. Build your unstructured grid using class `Taoyouh.Vtkfile.UnstructuredFileBuilder`.
 
 3. Call the `ToXml()` method of the builder class to get the XML object, and then use the `Save(Stream)` function to save a file. (Remember the extension is .vtu for unstrctured grid files.)
+
+## Release notes
+1.0.0-rc4: Add support of quadratic cell types.
 
 ## Sample code
 
